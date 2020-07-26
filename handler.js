@@ -5,6 +5,7 @@ const 截止 = require('./actions/截止');
 const 統計 = require('./actions/統計');
 const 取消訂單 = require('./actions/取消訂單');
 const 下訂單 = require('./actions/下訂單');
+const 超級截止 = require('./actions/超級截止');
 
 // 沒開團的狀態下，輸入「開團」可以開團
 const 未開團handler = new LineHandler().onText('開團', 開團).build();
@@ -14,6 +15,7 @@ const 開團中handler = new LineHandler()
   .onText('截止', 截止)
   .onText('統計', 統計)
   .onText('取消', 取消訂單)
+  .onText('sudo截止', 超級截止)
   .onText(/^我也?要(.*)/, 下訂單)
   .build();
 
